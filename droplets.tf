@@ -17,10 +17,10 @@ resource "digitalocean_droplet" "do-server-1" {
     #cloud-config
     package_update: true
     package_upgrade: true
-    packages:
-      - nginx
-    runcmd:
-      - systemctl enable nginx
-      - systemctl start nginx
+    # packages:
+    #   - nginx
+    # runcmd:
+    #   - systemctl enable nginx
+    #   - systemctl start nginx
   EOF
 }
