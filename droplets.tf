@@ -1,8 +1,8 @@
-resource "digitalocean_droplet" "www-1" {
+resource "digitalocean_droplet" "do-server-1" {
   image = "ubuntu-22-04-x64"
-  name = "www-1"
+  name = "do-server-1"
   region = "nyc2"
-  size = "s-1vcpu-1gb"
+  size = "s-1vcpu-512mb-10gb"
   ssh_keys = [
     data.digitalocean_ssh_key.terraform.id
   ]
