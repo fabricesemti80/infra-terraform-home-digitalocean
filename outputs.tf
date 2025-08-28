@@ -20,7 +20,17 @@ output "current_ip_allowed" {
 
 output "firewall_name" {
   description = "Name of the created firewall"
-  value       = digitalocean_firewall.ssh_only.name
+  value       = digitalocean_firewall.hybrid_security.name
+}
+
+output "tailscale_info" {
+  description = "Information about Tailscale configuration"
+  value = {
+    coordination_port = "41641"
+    beszel_agent_port = "45876"
+    access_method     = "Tailscale network only"
+    emergency_ssh     = "Available from ${chomp(data.http.current_ip.response_body)}"
+  }
 }
 
 # Generate Ansible inventory file
